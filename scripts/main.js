@@ -47,9 +47,15 @@ bpaper.onclick = function() {
    paper();
 }
 
-const price = document.querySelector('#price')
-const output = document.querySelector('.price-output')
+const price = document.querySelector('#price');
+const output = document.querySelector('.price-output');
 
 price.onclick = function() {
-   output.textContent = price.value
+   output.textContent = price.value;
+}
+
+const reset = document.getElementById('reset');
+
+reset.onclick = function () {
+   output.textContent = 'nothing';
 }

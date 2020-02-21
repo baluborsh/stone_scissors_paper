@@ -47,15 +47,20 @@ bpaper.onclick = function() {
    paper();
 }
 
-const price = document.querySelector('#price');
-const output = document.querySelector('.price-output');
+const lizard = document.querySelector('#lizard');
+const spok = document.querySelector('#spok')
+const output = document.querySelector('.but-output');
 
-price.onclick = function() {
-   output.textContent = price.value;
+lizard.onclick = function() {
+   output.textContent = lizard.value;
+}
+
+spok.onclick = function() {
+   output.textContent = spok.value;
 }
 
 const reset = document.getElementById('reset');
 
 reset.onclick = function () {
-   output.textContent = 'nothing';
+   output.textContent = ' ';
 }

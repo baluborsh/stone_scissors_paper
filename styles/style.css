@@ -10,3 +10,7 @@ h1 {
 #b-paper {
    color: #ff6c36;
 }
+
+#result-output {
+   color: red;
+}

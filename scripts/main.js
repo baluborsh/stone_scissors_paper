@@ -21,56 +21,64 @@ userButton.onclick = function() {
 var bstone = document.getElementById('b-stone');
 var bscis = document.getElementById('b-scis');
 var bpaper = document.getElementById('b-paper');
-
-function stone() {
-   document.write("<h2>Вы могли выбрать что-нибудь другое...</h2> <p>Но вы выбрали камень, поэтому видите эту страницу</p> <input type='button' value='Вас понял...' onClick='window.location.reload()'>");
-}
-
-function scis() {
-    alert('Вы выбрали ножницы');
-}
-
-function paper() {
-   alert('Вы выбрали камень');
-}
-
-
-bstone.onclick = function() {
-   stone();
-}
-
-bscis.onclick = function() {
-   scis();
-}
-
-bpaper.onclick = function() {
-   paper();
-}
-
-const lizard = document.querySelector('#lizard');
-const spok = document.querySelector('#spok')
-const output = document.querySelector('.but-output');
-let compChoose = ["Ящерица", "Спок"];
+const output = document.querySelector('.user-output');
+let compChoose = ["Камень", "Ножницы", "Бумага"];
 var rand = Math.floor(Math.random() * compChoose.length);
 const compOutput = document.querySelector('.comp-output');
 const resultOutput = document.querySelector('.result-output');
+var userChoice
 
-lizard.onclick = function() {
-   output.textContent = lizard.value;
-   compOutput.textContent = compChoose[rand];
-   if (compChoose[rand] === lizard.value) {
-      resultOutput.textContent = 'VICTORY!!!';
-   } else {
+function Play() {
+   bstone.parentNode.removeChild(bstone);
+   bscis.parentNode.removeChild(bscis);
+   bpaper.parentNode.removeChild(bpaper);
+   if (compChoose[rand] === userChoice) {
+      resultOutput.textContent = 'Ничья...';
+      resultOutput.style.color = "gray";
+   }
+   if (compChoose[rand] === "Камень" && userChoice === "Ножницы") {
+      resultOutput.textContent = 'PRIMO VICTORIA!!!1';
+      resultOutput.style.color = "green";
+   }
+   if (compChoose[rand] === "Камень" && userChoice === "Бумага") {
+      resultOutput.textContent = 'HA-HA, LOSER!!!'
+      resultOutput.style.color = "red";
+   }
+   if (compChoose[rand] === "Ножницы" && userChoice === "Камень") {
+      resultOutput.textContent = 'PRIMO VICTORIA!!!1';
+      resultOutput.style.color = "green";
+   }
+   if (compChoose[rand] === "Ножницы" && userChoice === "Бумага") {
       resultOutput.textContent = 'HA-HA, LOSER!!!';
+      resultOutput.style.color = "red";
+   }
+   if (compChoose[rand] === "Бумага" && userChoice === "Ножницы") {
+      resultOutput.textContent = 'PRIMO VICTORIA!!!1';
+      resultOutput.style.color = "green";
+   }
+   if (compChoose[rand] === "Бумага" && userChoice === "Камень") {
+      resultOutput.textContent = 'HA-HA, LOSER!!!';
+      resultOutput.style.color = "red";
    }
 }
 
-spok.onclick = function() {
-   output.textContent = spok.value;
+bstone.onclick = function() {
+   userChoice = "Камень";
+   output.textContent = bstone.value;
+   compOutput.textContent = compChoose[rand];
+   Play(); 
 }
 
-const reset = document.getElementById('reset');
+bscis.onclick = function() {
+   userChoice = "Ножницы";
+   output.textContent = bscis.value;
+   compOutput.textContent = compChoose[rand];
+   Play();
+}
 
-reset.onclick = function () {
-   output.textContent = ' ';
+bpaper.onclick = function() {
+   userChoice = "Бумага";
+   output.textContent = bpaper.value;
+   compOutput.textContent = compChoose[rand];
+   Play();
 }

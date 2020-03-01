@@ -11,19 +11,16 @@
    <button id="changeuser">Сменить пользователя</button>
         <h2>Давай поиграем в камень-ножницы-бумага!</h2>
 	     <p>         
-           <button id="b-stone">Камень</button>
-           <button id="b-scis">Ножницы</button>
-           <button id="b-paper">Бумага</button>
+           <button id="b-stone" value="Камень" class="user-choice">Камень</button>
+           <button id="b-scis" value="Ножницы" class="user-choice">Ножницы</button>
+           <button id="b-paper" value="Бумага" class="user-choice">Бумага</button>            
         </p>
-        <p>___________________________________</p>
         <p>
-         <input type="button" name="but" id="lizard" value="Ящерица">
-         <input type="button" name="but" id="spok" value="Спок"> 
+           <input type='button' value='Трай эгейн!' onClick='window.location.reload()'></input>
         </p>
-        <p>Вы выбрали:          <b><output class="but-output" for="but"></output></b></p>
+        <p>Вы выбрали:          <b><output class="user-output" for="but"></output></b></p>
         <p>Компьютер выбрал:    <b><output class="comp-output" id="comp-output"></output></b></p>
         <p>Результат:            <b><output class="result-output" id="result-output"></output></b></p>
-        <p><button id="reset">RESET</button></p>
     <script src="scripts/main.js"></script>
    </body>
 </html>
